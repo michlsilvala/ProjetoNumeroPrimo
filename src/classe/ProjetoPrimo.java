@@ -7,6 +7,7 @@ public class ProjetoPrimo extends javax.swing.JFrame {
 
     public ProjetoPrimo() {
         initComponents();
+        // inicializando o numero 1
         
         int numero1 = Integer.parseInt(controleNumero.getValue().toString());
         
@@ -86,6 +87,8 @@ public class ProjetoPrimo extends javax.swing.JFrame {
         
         int contDiv = 0;
         int contador = 1;
+        
+        // calculo e saida
         
         do{
             if(numero % contador == 0){
