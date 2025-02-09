@@ -4,6 +4,35 @@ package classe;
 import java.awt.Color;
 
 public class ProjetoPrimo extends javax.swing.JFrame {
+    // funcao calcula primo
+    static String calculaPrimo(int numeroParametro){
+        int numero = numeroParametro;
+        
+        
+        int contDiv = 0;
+        int contador = 1;
+        
+        // calculo e saida
+        
+        do{
+            if(numero % contador == 0){
+                contDiv++;
+            }
+            contador++;
+        }while(contador <= numero);
+        
+        if(contDiv < 3){
+            
+            return "É PRIMO";
+                     
+        }else{
+            return "NÃO É PRIMO";
+            
+        }
+        
+        
+        
+    }
 
     public ProjetoPrimo() {
         initComponents();
@@ -80,34 +109,31 @@ public class ProjetoPrimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void controleNumeroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_controleNumeroStateChanged
-                                
+                
+        // caso especial para numero 1
+        int numero2 = Integer.parseInt(controleNumero.getValue().toString());
+        if(numero2 == 1){
+            lblMensagem.setText("NÃO É PRIMO");
+            lblMensagem.setForeground(Color.green);
+            // isso aqui é uma gambiarra :)
+            return;
+        }
+        
+        
         // pegar valor
         
         int numero = Integer.parseInt(controleNumero.getValue().toString());
         
-        int contDiv = 0;
-        int contador = 1;
+        String ePrimoOuNao = calculaPrimo(numero);
         
-        // calculo e saida
-        
-        do{
-            if(numero % contador == 0){
-                contDiv++;
-            }
-            contador++;
-        }while(contador <= numero);
-        
-        if(contDiv < 3){
-            lblMensagem.setText("É PRIMO");
+        lblMensagem.setText(ePrimoOuNao);
+        if(ePrimoOuNao.equals("É PRIMO")){
             lblMensagem.setForeground(Color.blue);
         }else{
-            lblMensagem.setText("NÃO É PRIMO");
             lblMensagem.setForeground(Color.red);
         }
         
-        
-        
-        
+                      
     }//GEN-LAST:event_controleNumeroStateChanged
 
     public static void main(String args[]) {
